@@ -1,0 +1,182 @@
+BCM
+Slide #10250731001351_GGTW
+Recently Viewed Tests
+Settings
+Exit
+BCM
+#10250731001351_GGTW
+Test Date: Mar 15, 2026 17:15:25
+Patient :
+UNKNOWN
+Summary
+Diff Count
+Report
+Memo
+More
+Report
+Address
+-
+Phone
+-
+Sample No.
+-
+Patient ID
+-
+Patient Name
+-
+Slide ID
+10250731001351_GGTW
+Device ID
+miLab1_0826
+Test Started
+Mar 15, 2026 17:15:25
+Test Confirmed
+-
+Ordered Item
+CBC with Differential
+Clinical Info
+Abnormal
+(WBC (!) 176/200)
+Test
+Result
+Unit
+Ref. Interval
+WBC
+5.39
+10^3/µL
+4.00-10.00
+RBC
+6.38
+10^6/µL
+high
+4.00-5.40
+HGB
+20.0
+g/dL
+HIGH
+12.0-16.0
+HCT
+55.6
+%
+high
+36.0-48.0
+MCV
+87.2
+fL
+85.5-101.9
+MCH
+31.4
+pg
+27.3-38.0
+MCHC
+36.0
+g/dL
+31.5-36.5
+RDW-CV
+15.9
+%
+HIGH
+11.5-14.5
+PLT
+137
+10^3/µL
+130-400
+NEUT%
+78.4
+%
+high
+50.0-75.0
+LYMPH%
+16.5 *
+%
+LOW
+20.0-44.0
+MONO%
+4.5
+%
+2.0-9.0
+EO%
+0.0
+%
+low
+1.0-5.0
+BASO%
+0.6
+%
+0.0-2.0
+NEUT#
+4.22
+10^3/µL
+1.40-7.00
+LYMPH#
+0.89 *
+10^3/µL
+LOW
+0.70-3.10
+MONO#
+0.24
+10^3/µL
+0.10-0.90
+EO#
+0.00
+10^3/µL
+0.00-0.40
+BASO#
+0.03
+10^3/µL
+0.00-0.20
+@RUO
+Test
+Result
+Unit
+Ref. Interval
+@nRBC
+0
+-
+-
+@PLT Clumping
+13 *
+-
+-
+Signature
+Mar 26, 2026 22:40:08
+Page 1 of 2
+Report
+Address
+-
+Phone
+-
+@RUO
+Test
+Result
+Unit
+Ref. Interval
+@Smudge Cell
+6 *
+-
+-
+WBC Flag
+Lymphopenia
+RBC Flag
+Anisocytosis
+Erythrocytosis
+PLT Flag
+-
+System Flag
+Abnormal RBC Measurement
+Comments
+No comment
+Atypical Lymphocyte?
+(1)
+PLT Clumps?
+(13)
+Smudge Cell?
+(9)
+Signature
+Mar 26, 2026 22:40:08
+Page 2 of 2
+Download WBC Images
+Print Report
+Memo
+WRITE
+No notes

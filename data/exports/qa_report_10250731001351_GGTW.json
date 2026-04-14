@@ -1,0 +1,51 @@
+{
+  "slideId": "10250731001351_GGTW",
+  "summary": {
+    "total": 4,
+    "pass": 4,
+    "fail": 0,
+    "warn": 0
+  },
+  "results": [
+    {
+      "flagName": "Lymphopenia",
+      "category": "Count Flags",
+      "status": "PASS",
+      "expectedMeaning": "Lymphocyte % and/or absolute lymphocyte count is below the configured threshold.",
+      "expectedAction": "Correlate with clinical context and prior results. Repeat measurement if unexpected. Perform additional review/confirmation per SOP if clinically indicated.",
+      "popupMeaning": "Lymphocyte % and/or absolute lymphocyte count is below the configured threshold.",
+      "popupAction": "Correlate with clinical context and prior results. Repeat measurement if unexpected. Perform additional review/confirmation per SOP if clinically indicated.",
+      "note": "✅ 팝업 텍스트가 스펙과 일치"
+    },
+    {
+      "flagName": "Anisocytosis",
+      "category": "Count Flags",
+      "status": "PASS",
+      "expectedMeaning": "RDW-CV result is above the laboratory-configured high threshold.",
+      "expectedAction": "Correlate with CBC indices and clinical history. Repeat measurement if unexpected. Consider smear review if required by SOP.",
+      "popupMeaning": "RDW-CV result is above the laboratory-configured high threshold.",
+      "popupAction": "Correlate with CBC indices and clinical history. Repeat measurement if unexpected. Consider smear review if required by SOP.",
+      "note": "✅ 팝업 텍스트가 스펙과 일치"
+    },
+    {
+      "flagName": "Erythrocytosis",
+      "category": "Count Flags",
+      "status": "PASS",
+      "expectedMeaning": "HGB result is above the laboratory-configured high threshold.",
+      "expectedAction": "Confirm plausibility and specimen condition. Repeat measurement if unexpected. Apply critical value reporting/escalation procedures if required by local policy.",
+      "popupMeaning": "HGB result is above the laboratory-configured high threshold.",
+      "popupAction": "Confirm plausibility and specimen condition. Repeat measurement if unexpected. Apply critical value reporting/escalation procedures if required by local policy.",
+      "note": "✅ 팝업 텍스트가 스펙과 일치"
+    },
+    {
+      "flagName": "Abnormal RBC Measurement",
+      "category": "System Flags",
+      "status": "PASS",
+      "expectedMeaning": "Internal signals suggest reduced reliability of RBC/CBC-related results (e.g., RBC/Hb/Hct/indices).",
+      "expectedAction": "1) Do not report without additional verification. 2) Repeat measurement. 3) Check specimen condition (mixing, microclots, hemolysis/lipemia, storage time). 4) Review smear/stain quality and cell images; consider manual confirmation per SOP. 5) If unresolved, re-smear/re-stain and repeat and/or request recollection per local policy.",
+      "popupMeaning": "Internal signals suggest reduced reliability of RBC/CBC-related results (e.g., RBC/Hb/Hct/indices).",
+      "popupAction": "1) Do not report without additional verification. 2) Repeat measurement. 3) Check specimen condition (mixing, microclots, hemolysis/lipemia, storage time). 4) Review smear/stain quality and cell images; consider manual confirmation per SOP. 5) If unresolved, re-smear/re-stain and repeat and/or request recollection per local policy.",
+      "note": "✅ 팝업 텍스트가 스펙과 일치"
+    }
+  ]
+}

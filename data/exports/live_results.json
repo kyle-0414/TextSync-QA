@@ -1,0 +1,68 @@
+{
+  "results": [
+    {
+      "timestamp": "2026-04-09T10:05:39.603Z",
+      "testId": "X10826_260409_000",
+      "flagName": "IG Present?",
+      "category": "Morphology Flags",
+      "status": "SKIP_VERIFIED",
+      "note": "이미 완료됨",
+      "screenshotPath": "shot_IG_Present__1775726818943.png"
+    },
+    {
+      "timestamp": "2026-04-09T10:05:39.626Z",
+      "testId": "X10826_260409_000",
+      "flagName": "Lymphopenia",
+      "category": "Count Flags",
+      "status": "SKIP_VERIFIED",
+      "note": "이미 완료됨",
+      "screenshotPath": "shot_Lymphopenia_1775726902813.png"
+    },
+    {
+      "timestamp": "2026-04-09T10:05:39.642Z",
+      "testId": "X10826_260409_000",
+      "flagName": "Anemia",
+      "category": "Count Flags",
+      "status": "SKIP_VERIFIED",
+      "note": "이미 완료됨",
+      "screenshotPath": "shot_Anemia_1775726904616.png"
+    },
+    {
+      "timestamp": "2026-04-09T10:05:39.657Z",
+      "testId": "X10826_260409_000",
+      "flagName": "Anisocytosis",
+      "category": "Count Flags",
+      "status": "SKIP_VERIFIED",
+      "note": "이미 완료됨",
+      "screenshotPath": "shot_Anisocytosis_1775726906437.png"
+    },
+    {
+      "timestamp": "2026-04-09T10:05:39.672Z",
+      "testId": "X10826_260409_000",
+      "flagName": "Microcytosis",
+      "category": "Count Flags",
+      "status": "SKIP_VERIFIED",
+      "note": "이미 완료됨",
+      "screenshotPath": "shot_Microcytosis_1775726908300.png"
+    },
+    {
+      "timestamp": "2026-04-09T10:05:39.688Z",
+      "testId": "X10826_260409_000",
+      "flagName": "Thrombocytopenia",
+      "category": "Count Flags",
+      "status": "SKIP_VERIFIED",
+      "note": "이미 완료됨",
+      "screenshotPath": "shot_Thrombocytopenia_1775726910065.png"
+    },
+    {
+      "timestamp": "2026-04-09T10:05:39.703Z",
+      "testId": "X10826_260409_000",
+      "flagName": "Stain quality check",
+      "category": "System Flags",
+      "status": "SKIP_VERIFIED",
+      "note": "이미 완료됨",
+      "screenshotPath": "shot_Stain_quality_check_1775726911877.png"
+    }
+  ],
+  "lastUpdate": "2026-04-09T10:05:39.703Z"
+}

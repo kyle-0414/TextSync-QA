@@ -1,0 +1,272 @@
+{
+  "IG Present?": {
+    "flagName": "IG Present?",
+    "status": "PASS",
+    "firstTestId": "X10826_260409_000",
+    "verifiedAt": "2026-04-09T09:26:59.659Z",
+    "actualMeaning": "Proportion of IG-flagged cells meets \"Present\" criterion.",
+    "actualAction": "Review flagged cells; consider manual differential per SOP.",
+    "screenshotPath": "shot_IG_Present__1775726818943.png"
+  },
+  "Lymphopenia": {
+    "flagName": "Lymphopenia",
+    "status": "PASS",
+    "firstTestId": "X10826_260409_000",
+    "verifiedAt": "2026-04-09T09:28:23.529Z",
+    "actualMeaning": "Lymphocyte % and/or absolute lymphocyte count is below the configured threshold.",
+    "actualAction": "Correlate with clinical context and prior results. Repeat measurement if unexpected. Perform additional review/confirmation per SOP if clinically indicated.",
+    "screenshotPath": "shot_Lymphopenia_1775726902813.png"
+  },
+  "Anemia": {
+    "flagName": "Anemia",
+    "status": "PASS",
+    "firstTestId": "X10826_260409_000",
+    "verifiedAt": "2026-04-09T09:28:25.343Z",
+    "actualMeaning": "HGB result is below the laboratory-configured low threshold.",
+    "actualAction": "Confirm plausibility and specimen condition. Repeat measurement (recommended when clinically significant or unexpected). Apply critical value reporting/escalation procedures if required.",
+    "screenshotPath": "shot_Anemia_1775726904616.png"
+  },
+  "Anisocytosis": {
+    "flagName": "Anisocytosis",
+    "status": "PASS",
+    "firstTestId": "X10826_260409_000",
+    "verifiedAt": "2026-04-09T09:28:27.201Z",
+    "actualMeaning": "RDW-CV result is above the laboratory-configured high threshold.",
+    "actualAction": "Correlate with CBC indices and clinical history. Repeat measurement if unexpected. Consider smear review if required by SOP.",
+    "screenshotPath": "shot_Anisocytosis_1775726906437.png"
+  },
+  "Microcytosis": {
+    "flagName": "Microcytosis",
+    "status": "PASS",
+    "firstTestId": "X10826_260409_000",
+    "verifiedAt": "2026-04-09T09:28:29.004Z",
+    "actualMeaning": "MCV result is below the laboratory-configured low threshold.",
+    "actualAction": "Correlate with clinical context and prior results. Repeat measurement if unexpected. Consider smear review if required by SOP.",
+    "screenshotPath": "shot_Microcytosis_1775726908300.png"
+  },
+  "Thrombocytopenia": {
+    "flagName": "Thrombocytopenia",
+    "status": "PASS",
+    "firstTestId": "X10826_260409_000",
+    "verifiedAt": "2026-04-09T09:28:30.793Z",
+    "actualMeaning": "PLT result is below the laboratory-configured low threshold.",
+    "actualAction": "Repeat measurement (recommended), especially if clinically significant. Review smear/images for platelet clumping. If clumping is suspected/confirmed, follow SOP (e.g., recollection or alternative anticoagulant).",
+    "screenshotPath": "shot_Thrombocytopenia_1775726910065.png"
+  },
+  "Stain quality check": {
+    "flagName": "Stain quality check",
+    "status": "PASS",
+    "firstTestId": "X10826_260409_000",
+    "verifiedAt": "2026-04-09T09:28:32.588Z",
+    "actualMeaning": "The stain quality may not meet intended conditions (e.g., under/overstaining, high background, precipitate), which can affect cell identification.",
+    "actualAction": "1) Repeat measurement. 2) Inspect stain quality and background (including precipitate/contamination). 3) If inadequate, re-stain or re-smear/re-stain and repeat the test. 4) If frequent/persistent, review staining reagents/process and perform routine QC per IFU.",
+    "screenshotPath": "shot_Stain_quality_check_1775726911877.png"
+  },
+  "Abnormal PLT Measurement": {
+    "flagName": "Abnormal PLT Measurement",
+    "status": "PASS",
+    "firstTestId": "X10826_260407_004",
+    "verifiedAt": "2026-04-09T09:29:52.069Z",
+    "actualMeaning": "Internal signals suggest reduced reliability of platelet-related results; platelet clumping may affect PLT results.",
+    "actualAction": "1) Do not report without additional verification. 2) Repeat measurement. 3) Check specimen condition (mixing, microclots). 4) Evaluate for platelet clumps in images/smear; treat PLT results with caution until verified. 5) If clumping is confirmed, follow SOP (e.g., recollection or alternative anticoagulant) and/or manual confirmation.",
+    "screenshotPath": "shot_Abnormal_PLT_Measurement_1775726991297.png"
+  },
+  "Abnormal WBC Measurement": {
+    "flagName": "Abnormal WBC Measurement",
+    "status": "PASS",
+    "firstTestId": "X10826_260407_004",
+    "verifiedAt": "2026-04-09T09:29:53.906Z",
+    "actualMeaning": "Internal signals suggest reduced reliability of WBC-related results. This indicates \"verify before reporting,\" not simply a high/low value.",
+    "actualAction": "1) Do not report without additional verification. 2) Repeat measurement. 3) Check specimen condition (mixing, clots/microclots, hemolysis/lipemia, storage time). 4) Review cell images/smear quality; perform manual microscopy/manual differential if required by SOP. 5) If persistent across specimens, perform instrument QC/maintenance and contact support as needed.",
+    "screenshotPath": "shot_Abnormal_WBC_Measurement_1775726993151.png"
+  },
+  "Abn Lymphocyte?": {
+    "flagName": "Abn Lymphocyte?",
+    "status": "WARNING",
+    "firstTestId": "X10826_260407_003",
+    "verifiedAt": "2026-04-09T09:30:00.167Z",
+    "actualMeaning": "Proportion of abnormal lymphocyte-flagged cells meets \"Present\" criterion.",
+    "actualAction": "Review flagged cells; consider manual confirmation per SOP.",
+    "screenshotPath": "shot_Abn_Lymphocyte__1775726999440.png"
+  },
+  "Leukocytosis": {
+    "flagName": "Leukocytosis",
+    "status": "PASS",
+    "firstTestId": "X10826_260407_003",
+    "verifiedAt": "2026-04-09T09:30:01.989Z",
+    "actualMeaning": "WBC result is above the laboratory-configured high threshold.",
+    "actualAction": "Correlate with clinical information and previous results (delta check). Repeat measurement if unexpected or near decision limits. Review smear/manual differential if clinically indicated.",
+    "screenshotPath": "shot_Leukocytosis_1775727001258.png"
+  },
+  "Lymphocytosis": {
+    "flagName": "Lymphocytosis",
+    "status": "PASS",
+    "firstTestId": "X10826_260407_003",
+    "verifiedAt": "2026-04-09T09:30:03.780Z",
+    "actualMeaning": "Lymphocyte % and/or absolute lymphocyte count is above the configured threshold.",
+    "actualAction": "Correlate with clinical context and delta check. Repeat measurement if unexpected. Review smear/manual differential if required by SOP.",
+    "screenshotPath": "shot_Lymphocytosis_1775727003073.png"
+  },
+  "Atypical Lymphocyte?": {
+    "flagName": "Atypical Lymphocyte?",
+    "status": "WARNING",
+    "firstTestId": "X10826_260407_002",
+    "verifiedAt": "2026-04-09T09:30:10.206Z",
+    "actualMeaning": "Proportion of atypical/reactive lymphocyte-flagged cells meets \"Present\" criterion.",
+    "actualAction": "Review flagged cells; confirm per SOP if required.",
+    "screenshotPath": "shot_Atypical_Lymphocyte__1775727009483.png"
+  },
+  "Leukocytopenia": {
+    "flagName": "Leukocytopenia",
+    "status": "PASS",
+    "firstTestId": "10250602001276",
+    "verifiedAt": "2026-04-09T09:32:07.565Z",
+    "actualMeaning": "WBC result is below the laboratory-configured low threshold.",
+    "actualAction": "Correlate with clinical information and previous results. Repeat measurement if unexpected or near decision limits. Review smear/manual differential if clinically indicated.",
+    "screenshotPath": "shot_Leukocytopenia_1775727126814.png"
+  },
+  "Neutropenia": {
+    "flagName": "Neutropenia",
+    "status": "PASS",
+    "firstTestId": "10250602001276",
+    "verifiedAt": "2026-04-09T09:32:09.348Z",
+    "actualMeaning": "Neutrophil % and/or absolute neutrophil count is below the configured threshold.",
+    "actualAction": "Repeat measurement if unexpected or clinically significant. Correlate with patient history and prior results. Perform smear/manual differential per SOP when required.",
+    "screenshotPath": "shot_Neutropenia_1775727128633.png"
+  },
+  "Smudge Present?": {
+    "flagName": "Smudge Present?",
+    "status": "PASS",
+    "firstTestId": "10250602001276",
+    "verifiedAt": "2026-04-09T09:32:11.156Z",
+    "actualMeaning": "Smudge cell pattern meets \"Present\" criterion.",
+    "actualAction": "Review smear quality + flagged cells; confirm per SOP if clinically relevant.",
+    "screenshotPath": "shot_Smudge_Present__1775727130445.png"
+  },
+  "Neutrophilia": {
+    "flagName": "Neutrophilia",
+    "status": "PASS",
+    "firstTestId": "X10826_260409_001",
+    "verifiedAt": "2026-04-09T09:33:27.210Z",
+    "actualMeaning": "Neutrophil % and/or absolute neutrophil count is above the configured threshold.",
+    "actualAction": "Correlate with clinical context and delta check. Repeat measurement if unexpected. Review smear/manual differential if clinically indicated or required by SOP.",
+    "screenshotPath": "shot_Neutrophilia_1775727206467.png"
+  },
+  "Macrocytosis": {
+    "flagName": "Macrocytosis",
+    "status": "PASS",
+    "firstTestId": "X10826_260409_001",
+    "verifiedAt": "2026-04-09T09:33:29.117Z",
+    "actualMeaning": "MCV result is above the laboratory-configured high threshold.",
+    "actualAction": "Correlate with clinical context and prior results. Repeat measurement if unexpected. Consider smear review if required by SOP.",
+    "screenshotPath": "shot_Macrocytosis_1775727208389.png"
+  },
+  "Erythrocytosis": {
+    "flagName": "Erythrocytosis",
+    "status": "PASS",
+    "firstTestId": "X10826_260407_001",
+    "verifiedAt": "2026-04-09T09:34:17.254Z",
+    "actualMeaning": "HGB result is above the laboratory-configured high threshold.",
+    "actualAction": "Confirm plausibility and specimen condition. Repeat measurement if unexpected. Apply critical value reporting/escalation procedures if required by local policy.",
+    "screenshotPath": "shot_Erythrocytosis_1775727256519.png"
+  },
+  "Basophilia": {
+    "flagName": "Basophilia",
+    "status": "PASS",
+    "firstTestId": "X10826_260407_000",
+    "verifiedAt": "2026-04-09T09:34:28.592Z",
+    "actualMeaning": "Basophil % and/or absolute basophil count is above the configured threshold.",
+    "actualAction": "Correlate with clinical context and prior results. Repeat measurement if unexpected. Consider smear review/manual differential per SOP.",
+    "screenshotPath": "shot_Basophilia_1775727267686.png"
+  },
+  "Monocytosis": {
+    "flagName": "Monocytosis",
+    "status": "PASS",
+    "firstTestId": "X10826_260407_000",
+    "verifiedAt": "2026-04-09T09:34:30.488Z",
+    "actualMeaning": "Monocyte % and/or absolute monocyte count is above the configured threshold.",
+    "actualAction": "Correlate with clinical context and delta check. Repeat measurement if unexpected. Consider smear review/manual differential per SOP.",
+    "screenshotPath": "shot_Monocytosis_1775727269740.png"
+  },
+  "Abnormal RBC Measurement": {
+    "flagName": "Abnormal RBC Measurement",
+    "status": "PASS",
+    "firstTestId": "X10826_260330_000",
+    "verifiedAt": "2026-04-09T09:35:16.872Z",
+    "actualMeaning": "Internal signals suggest reduced reliability of RBC/CBC-related results (e.g., RBC/Hb/Hct/indices).",
+    "actualAction": "1) Do not report without additional verification. 2) Repeat measurement. 3) Check specimen condition (mixing, microclots, hemolysis/lipemia, storage time). 4) Review smear/stain quality and cell images; consider manual confirmation per SOP. 5) If unresolved, re-smear/re-stain and repeat and/or request recollection per local policy.",
+    "screenshotPath": "shot_Abnormal_RBC_Measurement_1775727316093.png"
+  },
+  "Smear quality check": {
+    "flagName": "Smear quality check",
+    "status": "PASS",
+    "firstTestId": "X10826_260330_000",
+    "verifiedAt": "2026-04-09T09:35:18.702Z",
+    "actualMeaning": "The smear may not meet intended conditions (e.g., distribution, thickness, optimal region), which can affect image analysis and result interpretation.",
+    "actualAction": "1) Repeat measurement on the same specimen. 2) Inspect smear quality (adequate smear region, uniformity, feather edge/monolayer). 3) If inadequate, re-smear and repeat the test. 4) If frequent/persistent, review smear preparation workflow and perform routine QC/maintenance per IFU.",
+    "screenshotPath": "shot_Smear_quality_check_1775727317986.png"
+  },
+  "Blast?": {
+    "flagName": "Blast?",
+    "status": "PASS",
+    "firstTestId": "10250723000126",
+    "verifiedAt": "2026-04-09T09:35:55.176Z",
+    "actualMeaning": "Proportion of blast-flagged cells meets \"Present\" criterion.",
+    "actualAction": "Manual confirmation; escalate per SOP.",
+    "screenshotPath": "shot_Blast__1775727354405.png"
+  },
+  "Thrombocytosis": {
+    "flagName": "Thrombocytosis",
+    "status": "PASS",
+    "firstTestId": "10250723000126",
+    "verifiedAt": "2026-04-09T09:35:57.317Z",
+    "actualMeaning": "PLT result is above the laboratory-configured high threshold.",
+    "actualAction": "Correlate with clinical information and prior results. Repeat measurement if unexpected. Review smear if required by SOP.",
+    "screenshotPath": "shot_Thrombocytosis_1775727356558.png"
+  },
+  "Eosinophilia": {
+    "flagName": "Eosinophilia",
+    "status": "PASS",
+    "firstTestId": "10250723000434",
+    "verifiedAt": "2026-04-09T09:36:47.737Z",
+    "actualMeaning": "Eosinophil % and/or absolute eosinophil count is above the configured threshold.",
+    "actualAction": "Correlate with clinical context and prior results. Repeat measurement if unexpected. Consider smear review/manual differential per SOP.",
+    "screenshotPath": "shot_Eosinophilia_1775727407013.png"
+  },
+  "IG Present": {
+    "flagName": "IG Present",
+    "status": "PASS",
+    "firstTestId": "10250602001153",
+    "verifiedAt": "2026-04-09T09:48:32.326Z",
+    "actualMeaning": "Immature granulocyte (IG) % and/or absolute IG count is above the configured threshold.",
+    "actualAction": "Review flagged cells/images and correlate with clinical context/delta check. Repeat measurement if unexpected. Perform smear review/manual differential if required by SOP.",
+    "screenshotPath": "shot_IG_Present_1775728111527.png"
+  },
+  "nRBC Present?": {
+    "flagName": "nRBC Present?",
+    "status": "PASS",
+    "firstTestId": "10250723003122",
+    "verifiedAt": "2026-04-09T09:48:57.389Z",
+    "actualMeaning": "Proportion of nRBC-flagged cells meets \"Present\" criterion.",
+    "actualAction": "Review flagged cells; consider interpretation impact; confirm per SOP.",
+    "screenshotPath": "shot_nRBC_Present__1775728136665.png"
+  },
+  "Hypochromia": {
+    "flagName": "Hypochromia",
+    "status": "PASS",
+    "firstTestId": "M2310136147",
+    "verifiedAt": "2026-04-09T09:49:26.727Z",
+    "actualMeaning": "MCHC result is below the laboratory-configured low threshold.",
+    "actualAction": "Confirm specimen/result consistency. Repeat measurement if unexpected or inconsistent. Consider smear review/manual confirmation per SOP.",
+    "screenshotPath": "shot_Hypochromia_1775728165935.png"
+  },
+  "PLT Clumps?": {
+    "flagName": "PLT Clumps?",
+    "status": "PASS",
+    "firstTestId": "10250602001258",
+    "verifiedAt": "2026-04-09T09:54:45.033Z",
+    "actualMeaning": "Platelet clumping meets \"Present\" criterion; PLT results may be affected.",
+    "actualAction": "Treat PLT with caution until verified; repeat and confirm clumping; follow SOP for recollection/alternative tube if needed.",
+    "screenshotPath": "shot_PLT_Clumps__1775728484231.png"
+  }
+}
