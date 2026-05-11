@@ -49,6 +49,11 @@
     .view { display: none; } .view.active { display: block; animation: fadeIn 0.3s ease-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
+    .run-notice { display: none; margin: 16px 0 24px; padding: 14px 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); color: var(--text-dim); font-size: 0.92rem; line-height: 1.5; }
+    .run-notice.visible { display: block; }
+    .run-notice.info { border-color: rgba(99, 102, 241, 0.25); background: rgba(99, 102, 241, 0.08); color: #c7d2fe; }
+    .run-notice.success { border-color: rgba(16, 185, 129, 0.25); background: rgba(16, 185, 129, 0.08); color: #a7f3d0; }
+
     .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
     .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; position: relative; overflow: hidden; backdrop-filter: blur(10px); }
     .card-label { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 6px; letter-spacing: 0.5px; }
@@ -117,6 +122,7 @@
   <main class="main">
     <div id="view-audit" class="view active">
       <h1 style="font-family:'Outfit'; margin-top:0; font-size:2.2rem; letter-spacing:-1px">Quality Verification Matrix</h1>
+      <div id="run-notice" class="run-notice"></div>
       <div class="metrics">
         <div class="card"><div class="card-label">Verification Progress</div><div class="card-value" id="audit-progress">0/0</div><div class="p-bar" id="p-1"></div></div>
         <div class="card"><div class="card-label">Success Coverage</div><div class="card-value" id="audit-coverage">0%</div><div class="p-bar" id="p-2"></div></div>
@@ -133,11 +139,24 @@
 
   <script>
     let isPaused = false;
+    let isFetching = false;
+    let lastDataDigest = '';
 
     function showView(v) {
       document.querySelectorAll('.view, .nav-item').forEach(el=>el.classList.remove('active'));
       document.getElementById('view-'+v).classList.add('active');
-      document.querySelectorAll('.nav-item').forEach(n => { if(n.innerText.toLowerCase().includes(v.substring(0,4))) n.classList.add('active'); });
+      document.querySelectorAll('.nav-item').forEach(n => { 
+        if(n.getAttribute('onclick') && n.getAttribute('onclick').includes(v)) n.classList.add('active'); 
+      });
+      lastDataDigest = ''; // Force update on tab switch
+      if (!isFetching) loadData();
+    }
+
+    function showScreenshot(path) {
+      if (!path || path === 'null' || path === 'undefined') return;
+      const filename = String(path).split(/[/\\]/).pop();
+      document.getElementById('modal-img').src = '/screenshots/' + filename;
+      document.getElementById('modal').style.display = 'flex';
     }
 
     function closeResetModal() { 
@@ -192,6 +211,18 @@
       return `<div style="font-weight:700; color:#fff">${specName}</div><div style="font-size:0.7rem; color:#facc15; margin-top:4px">UI: ${actualName}</div>`;
     }
 
+    function setRunNotice(message = '', tone = 'info') {
+      const el = document.getElementById('run-notice');
+      if (!el) return;
+      el.className = 'run-notice';
+      if (!message) {
+        el.textContent = '';
+        return;
+      }
+      el.textContent = message;
+      el.classList.add('visible', tone);
+    }
+
     async function updateStatus() {
       if (isPaused) return;
       try {
@@ -213,46 +244,80 @@
     }
 
     async function loadData() {
-      if (isPaused) return;
-      await updateStatus();
-      const isAudit = document.getElementById('view-audit').classList.contains('active');
-      const res = await fetch(isAudit ? '/api/audit' : '/api/logs');
-      const data = await res.json();
+      if (isPaused || isFetching) return;
+      isFetching = true;
+      try {
+        const statusRes = await fetch('/api/status');
+        const statusData = await statusRes.json();
+        const isRunning = !!statusData.isRunning;
+        await updateStatus();
+        const isAudit = document.getElementById('view-audit').classList.contains('active');
+        const [auditRes, logsRes] = await Promise.all([
+          fetch('/api/audit'),
+          fetch('/api/logs')
+        ]);
+        const [auditData, logsData] = await Promise.all([
+          auditRes.json(),
+          logsRes.json()
+        ]);
+        const data = isAudit ? auditData : logsData;
+        
+        const currentDigest = JSON.stringify({ isAudit, isRunning, auditData, logsData });
+        if (lastDataDigest === currentDigest) return; // 데이터가 똑같으면 화면 다시 안그림 (렉 방지)
+        lastDataDigest = currentDigest;
 
-      if(isAudit) {
-        const pass = data.filter(d=>d.status==='PASS' || d.status==='WARNING').length, total = data.length || 1;
-        document.getElementById('audit-progress').innerText = `${pass}/${data.length}`;
-        const pct = Math.round((pass/total)*100);
-        document.getElementById('audit-coverage').innerText = pct+'%';
-        document.getElementById('p-1').style.width = (pass/total)*100+'%';
-        document.getElementById('p-2').style.width = pct+'%';
-        document.getElementById('audit-fails').innerText = data.filter(d=>d.status==='FAIL').length;
-        document.getElementById('audit-tbody').innerHTML = data.map(d => `
-          <tr>
-            <td style="font-size:0.7rem; color:var(--text-dim); font-weight:600">${d.Category}</td>
-            <td>${renderName(d.UIDisplayName || d.FlagName, d.actualName)}</td>
-            <td>${renderCell(d.status, d.ExpectedMeaning, d.actualMeaning)}</td>
-            <td>${renderCell(d.status, d.ExpectedAction, d.actualAction)}</td>
-            <td><span class="badge badge-${d.status.toLowerCase()}" onclick="showScreenshot('${d.screenshot}')">${d.status} ${d.screenshot?'📸':''}</span></td>
-            <td style="color:var(--primary); font-family:'Outfit'; font-weight:700; font-size:0.8rem">${d.slideId}</td>
-          </tr>
-        `).join('');
-      } else {
-        document.getElementById('activity-tbody').innerHTML = data.slice().reverse().map(l => {
-          const s = l.status.toLowerCase();
-          const badgeClass = s.includes('pass') ? 'pass' : s.includes('fail') ? 'fail' : s.includes('skip') ? 'skip' : 'pending';
-          return `
+        if (isRunning) {
+          setRunNotice('자동화가 실행 중입니다. 브라우저가 종료될 때까지 결과를 계속 수집하고 있어요.', 'info');
+        } else if (Array.isArray(logsData) && logsData.length > 0 && logsData.every(l => l.status === 'SKIP_VERIFIED')) {
+          setRunNotice('새 검증 없음으로 종료되었습니다. 이번 실행에서는 모든 항목이 기존 검증 캐시에 있어 재검증 없이 종료됐습니다.', 'success');
+        } else {
+          setRunNotice('');
+        }
+
+        if(isAudit) {
+          const pass = data.filter(d=>d.status==='PASS' || d.status==='WARNING').length, total = data.length || 1;
+          document.getElementById('audit-progress').innerText = `${pass}/${data.length}`;
+          const pct = Math.round((pass/total)*100);
+          document.getElementById('audit-coverage').innerText = pct+'%';
+          document.getElementById('p-1').style.width = (pass/total)*100+'%';
+          document.getElementById('p-2').style.width = pct+'%';
+          document.getElementById('audit-fails').innerText = data.filter(d=>d.status==='FAIL').length;
+          document.getElementById('audit-tbody').innerHTML = data.map(d => `
             <tr>
-              <td style="color:var(--text-dim); font-family:'Outfit'">${l.timestamp.split('T')[1].split('.')[0]}</td>
-              <td style="font-weight:700; color:#fff">${l.flagName}</td>
-              <td><span class="badge badge-${badgeClass}">${l.status.replace('_', ' ')}</span></td>
-              <td>${l.screenshotPath ? `<a href="#" onclick="showScreenshot('${l.screenshotPath}')" style="color:var(--primary); font-weight:700; font-size:0.8rem">VIEW CAPTURE 📸</a>` : '-'}</td>
+              <td style="font-size:0.7rem; color:var(--text-dim); font-weight:600">${d.Category}</td>
+              <td>${renderName(d.UIDisplayName || d.FlagName, d.actualName)}</td>
+              <td>${renderCell(d.status, d.ExpectedMeaning, d.actualMeaning)}</td>
+              <td>${renderCell(d.status, d.ExpectedAction, d.actualAction)}</td>
+              <td><span class="badge badge-${d.status.toLowerCase()}" onclick="showScreenshot('${d.screenshot}')">${d.status} ${d.screenshot?'📸':''}</span></td>
+              <td style="color:var(--primary); font-family:'Outfit'; font-weight:700; font-size:0.8rem">${d.slideId}</td>
             </tr>
-          `;
-        }).join('');
+          `).join('');
+        } else {
+          // 최대 150개의 최근 로그만 렌더링하여 DOM 처리에 의한 브라우저 렉(행) 방지
+          const displayData = data.slice(-150).reverse();
+          document.getElementById('activity-tbody').innerHTML = displayData.map(l => {
+            const s = l.status.toLowerCase();
+            const badgeClass = s.includes('pass') ? 'pass' : s.includes('fail') ? 'fail' : s.includes('skip') ? 'skip' : 'pending';
+            return `
+              <tr>
+                <td style="color:var(--text-dim); font-family:'Outfit'">${l.timestamp.split('T')[1].split('.')[0]}</td>
+                <td style="font-weight:700; color:#fff">${l.flagName}</td>
+                <td><span class="badge badge-${badgeClass}">${l.status.replace('_', ' ')}</span></td>
+                <td>${l.screenshotPath ? `<a href="#" onclick="showScreenshot('${l.screenshotPath}')" style="color:var(--primary); font-weight:700; font-size:0.8rem">VIEW CAPTURE 📸</a>` : '-'}</td>
+              </tr>
+            `;
+          }).join('');
+        }
+      } finally {
+        isFetching = false;
       }
     }
-    setInterval(loadData, 2000); loadData();
+    
+    async function pollData() {
+      await loadData();
+      setTimeout(pollData, 1500); // 요청 간격 보장하여 중복 API 요청 방지
+    }
+    pollData();
   </script>
 </body>
 </html>

@@ -25,7 +25,15 @@ app.post('/api/run', (req, res) => {
   if (isRunning) return res.json({ success: false, message: '이미 실행 중입니다.' });
   isRunning = true;
   console.log('🚀 [Runner] Starting automation...');
-  runnerProcess = spawn('npm', ['start'], { cwd: ROOT_DIR, shell: true, stdio: ['ignore', 'pipe', 'pipe'] });
+  const runnerCommand = process.platform === 'darwin'
+    ? { command: 'caffeinate', args: ['-d', '-i', 'npm', 'start'] }
+    : { command: 'npm', args: ['start'] };
+
+  if (process.platform === 'darwin') {
+    console.log('☕ [Runner] Preventing display sleep while automation is running...');
+  }
+
+  runnerProcess = spawn(runnerCommand.command, runnerCommand.args, { cwd: ROOT_DIR, shell: true, stdio: ['ignore', 'pipe', 'pipe'] });
   runnerProcess.stdout?.on('data', (d: Buffer) => process.stdout.write(d));
   runnerProcess.stderr?.on('data', (d: Buffer) => process.stderr.write(d));
   runnerProcess.on('close', (code) => { console.log(`🏁 [Runner] Exited with code ${code}`); isRunning = false; runnerProcess = null; });
